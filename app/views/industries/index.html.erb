@@ -1,0 +1,42 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+    <div class="row mb-3 mt-3">
+      <div class="col-md-10">
+        <h3>Industries</h3>
+        <h3 class="background-bar">Industries</h3>
+      </div>
+
+      <div class="col-md-2 mt-2">
+        <%= link_to "New Industry", new_industry_path %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10 table-background">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th style='width:200px'>Name</th>
+              <th>Businesses</th>
+              <th>Players</th>
+              <th>Articles</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <% @industries.each do |industry| %>
+          <tr>
+              <td style='width:200px'><%= link_to industry.name, industry %></td>
+              <td>Businesses</td>
+              <td>Players</td>
+              <td>Industries</td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+    </div>

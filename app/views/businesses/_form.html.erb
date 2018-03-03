@@ -1,0 +1,46 @@
+<div class="row mt-3">
+  <div class="col-md-1"></div>
+  <div class="col-md-7 table-background">
+    <%= form_for(business) do |f| %>
+    <% if business.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+        <ul>
+        <% business.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+        <div class="field form-group row">
+          <%= f.label :name, class:"col-sm-3" %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :description, class:"col-sm-3"%>
+          <%= f.text_field :description %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :location, class:"col-sm-3"%>
+          <%= f.text_field :location %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :dropbox, class:"col-sm-3"%>
+          <%= f.text_field :dropbox %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :website, class:"col-sm-3"%>
+          <%= f.text_field :website %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :logo, class:"col-sm-3"%>
+          <%= f.text_field :logo %>
+        </div>
+        <div class="field form-group row">
+          <%= f.submit %>
+        </div>
+
+    <% end %>
+  </div>
+</div>

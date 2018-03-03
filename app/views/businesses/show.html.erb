@@ -1,0 +1,59 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+    <div class="row mb-3 mt-3">
+      <div class="col-md-1">
+
+        <% if @business.logo.present? %>
+        <div class="image-filler">
+          <%= image_tag @business.logo.url(:thumb) %>
+        </div>
+        <% else %>
+          <div class="image-filler"></div>
+        <% end %>
+
+      </div>
+      <div class="col-md-9">
+
+            <h3 class="startup-name"><%= @business.name %></h3>
+            <h3 class="background-bar-show"><%= @business.name %></h3>
+
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 table-background">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Dropbox</th>
+          <th>Website</th>
+          <th>People</th>
+          <th>Industry</th>
+          <th>Articles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= link_to @business.name, business_path(@business) %></td>
+          <td><%= @business.description %></td>
+          <td><%= @business.location %></td>
+          <td><a href="<%= @business.dropbox %>">Link</a></td>
+          <td><a href='<%= @business.website %>'>Link</a></td>
+          <td>Industries</td>
+          <td>Articles</td>
+          <td>Players</td>
+         </tr>
+        </tbody>
+      </table>
+      <%= link_to "Edit", edit_business_path(@business) %> |
+      <%= link_to "Delete", @business, method: :delete %> |
+      <%= link_to "Add New Article", new_article_path(startup: @business.name) %>
+     </div>
+    </div>
+</div>

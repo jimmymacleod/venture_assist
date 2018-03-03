@@ -1,0 +1,55 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+    <div class="row mb-3 mt-3">
+      <div class="col-md-10">
+        <h3>Businesses</h3>
+        <h3 class="background-bar">Businesses</h3>
+      </div>
+
+      <div class="col-md-2 mt-2">
+        <%= link_to "New Business", new_business_path %>
+      </div>
+    </div>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10 table-background">
+      <table class="table">
+        <thead class="" style="background-color: darkgrey">
+          <tr style="height:40px;">
+            <th><h6>Name</h6></th>
+            <th><h6>Description</h6></th>
+            <th><h6>Location</h6></th>
+            <th><h6>Dropbox</h6></th>
+            <th><h6>Website</h6></th>
+            <th><h6>Logo</h6></th>
+            <th><h6>Industry</h6></th>
+            <th><h6>Articles</h6></th>
+            <th><h6>Players</h6></th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+        <% @businesses.each do |business| %>
+          <tr style="height:40px;padding:0;">
+              <td class="company-name"><%= link_to business.name, business_path(business) %></td>
+              <td><%= business.description %></td>
+              <td><%= business.location %></td>
+              <td><a href="<%= business.dropbox %>">Link</a></td>
+              <td><a href='<%= business.website %>'>Link</a></td>
+              <td><%= business.logo %></td>
+              <td>Industries</td>
+              <td>Articles</td>
+              <td>Players</td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+  </div>
+
+</div>
+</div>

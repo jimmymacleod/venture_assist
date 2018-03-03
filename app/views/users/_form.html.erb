@@ -1,0 +1,50 @@
+<div class="row m-3">
+  <div class="col-md-1"></div>
+
+    <div class="col-md-5 table-background">
+
+      <h3>Sign Up</h3>
+
+      <%= form_with(model: User, local: true)  do |form| %>
+
+        <% if user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+    <div class="field form-group row mt-3">
+      <%= form.label :name, "Name", :class => 'col-md-6' %>
+      <%= form.text_field :name, id: :name, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field form-group row mt-3">
+      <%= form.label :email, :class => 'col-md-6' %>
+      <%= form.text_field :email, id: :user_email %>
+    </div>
+
+    <div class="field form-group row mt-3">
+      <%= form.label :password, :class => 'col-md-6' %>
+      <%= form.password_field :password, id: :user_password_digest %>
+    </div>
+
+    <div class="field form-group row mt-3">
+      <%= form.label :password_confirmation, :class => 'col-md-6' %>
+      <%= form.password_field :password_confirmation, id: :user_password_digest %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Sign Up", method: :post, :class => 'm-3' %>
+    </div>
+
+  <% end %>
+
+</div>
+
+</div>

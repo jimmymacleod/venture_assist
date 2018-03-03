@@ -1,0 +1,53 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+
+    <div class="row mb-3 mt-3">
+      <div class="col-md-10">
+        <h3>Articles</h3>
+        <h3 class="background-bar">Articles</h3>
+      </div>
+
+      <div class="col-md-2 mt-2">
+        <%= link_to "New Article", new_article_path %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10 table-background">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th style='width:200px'>Title</th>
+              <th>Publisher</th>
+              <th>Link</th>
+              <th>Date</th>
+              <th>Image</th>
+              <th>Businesses</th>
+              <th>Industries</th>
+              <th>Players</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <% @articles.each do |article| %>
+          <tr>
+              <td style='width:200px'><%= link_to article.name, article %></td>
+              <td><%= article.publisher %></td>
+              <td><a href="<%= article.link %>">Link</a></td>
+              <td><%= article.date %></td>
+              <td><%= article.image %></td>
+              <td>Businesses</td>
+              <td>Industries</td>
+              <td>Players</td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+    </div>

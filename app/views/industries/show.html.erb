@@ -1,0 +1,40 @@
+<div class="container">
+
+    <p id="notice"><%= notice %></p>
+
+    <div class="row mb-3 mt-3">
+      <div class="col-md-10">
+        <h3><%= @industry.name %></h3>
+        <h3 class="background-bar"><%= @industry.name %></h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10 table-background">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Businesses</th>
+              <th>Articles</th>
+              <th>Players</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @industry.name %></td>
+              <td>Businesses</td>
+              <td>Articles</td>
+              <td>Players</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <%= link_to "Edit", edit_industry_path(@industry) %> |
+        <%= link_to "Delete", @industry, method: :delete %>
+
+      </div>
+
+    </div>
+    </div>

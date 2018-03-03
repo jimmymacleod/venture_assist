@@ -1,0 +1,45 @@
+<div class="row mt-3">
+  <div class="col-md-1"></div>
+  <div class="col-md-7 table-background">
+
+    <%= form_for [article], html: { multipart: true } do |f| %>
+
+        <% if article.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+            <ul>
+            <% article.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field form-group row">
+          <%= f.label :name, class:"col-sm-3" %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :publisher, class:"col-sm-3" %>
+          <%= f.text_field :publisher %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :link, class:"col-sm-3" %>
+          <%= f.text_field :link %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :date, class:"col-sm-3" %>
+          <%= f.date_field :date %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :image, class:"col-sm-3" %>
+          <%= f.file_field :image %>
+        </div>
+        <div class="field form-group row">
+          <%= f.submit %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

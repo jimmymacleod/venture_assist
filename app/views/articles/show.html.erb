@@ -1,0 +1,48 @@
+<div class="container">
+
+    <p id="notice"><%= notice %></p>
+
+    <div class="row mb-3 mt-3">
+      <div class="col-md-10">
+        <h3><%= @article.name %></h3>
+        <h3 class="background-bar"><%= @article.name %></h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10 table-background">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Publisher</th>
+              <th>Link</th>
+              <th>Date</th>
+              <th>Image</th>
+              <th>Businesses</th>
+              <th>Industries</th>
+              <th>Players</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @article.name %></td>
+              <td><%= @article.publisher %></td>
+              <td><a href="<%= @article.link %>">Link</a></td>
+              <td><%= @article.date %></td>
+              <td><%= @article.image %></td>
+              <td>Businesses</td>
+              <td>Industries</td>
+              <td>Players</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <%= link_to "Edit", edit_article_path(@article) %> |
+        <%= link_to "Delete", @article, method: :delete %>
+
+      </div>
+
+    </div>
+    </div>

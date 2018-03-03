@@ -1,0 +1,36 @@
+<div class="row mt-3">
+  <div class="col-md-1"></div>
+  <div class="col-md-7 table-background">
+
+    <%= form_for [player], html: { multipart: true } do |f| %>
+
+        <% if player.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(player.errors.count, "error") %> prohibited this industry from being saved:</h2>
+
+            <ul>
+            <% player.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field form-group row">
+          <%= f.label :name, class:"col-sm-3" %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :linkedin, class:"col-sm-3" %>
+          <%= f.text_field :linkedin %>
+        </div>  <div class="field form-group row">
+            <%= f.label :photo, class:"col-sm-3" %>
+            <%= f.file_field :photo %>
+          </div>
+        <div class="field form-group row">
+          <%= f.submit %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

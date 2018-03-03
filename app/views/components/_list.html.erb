@@ -1,0 +1,14 @@
+<% if collection.exists? %>
+      <% collection.each do |element| %>
+        <%= link_to element.name, element %><br><br>
+      <% end %>
+    <% else %>
+      <% model_name = collection.class.to_s.underscore.split('/')[0] %>
+      <button>
+      <%= link_to "Add New", send("new_#{model_name}_path", collection) %>
+      </button>
+<% end %>
+
+<!-- <td><%= render partial: 'components/list', locals: {collection: @players.where(startup_id: startup.id)} %></td>
+<td><%= render partial: 'components/list', locals: {collection: startup.industry} %></td>
+<td><button><%= link_to "Articles", startup_articles_path(:id => startup.id) %></button></td> -->
