@@ -32,9 +32,9 @@
               <td style='width:200px'><%= link_to player.name, player %></td>
               <td><%= link_to "Linkedin", player.linkedin, data: { confirm: "Are you sure?" } %></td>
               <td>Photo</td>
-              <td>Businesses</td>
-              <td>Articles</td>
-              <td>Industries</td>
+              <td><%= render partial: 'components/list', locals: {collection: player.businesses} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: player.articles} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: player.industries} %></td>
             </tr>
           <% end %>
           </tbody>

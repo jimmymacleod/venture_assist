@@ -24,9 +24,9 @@
           <tbody>
             <tr>
               <td><%= @industry.name %></td>
-              <td>Businesses</td>
-              <td>Articles</td>
-              <td>Players</td>
+              <td><%= render partial: 'components/list', locals: {collection: @industry.businesses} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: @industry.players} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: @industry.articles} %></td>
             </tr>
           </tbody>
         </table>

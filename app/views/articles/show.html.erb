@@ -32,9 +32,9 @@
               <td><a href="<%= @article.link %>">Link</a></td>
               <td><%= @article.date %></td>
               <td><%= @article.image %></td>
-              <td>Businesses</td>
-              <td>Industries</td>
-              <td>Players</td>
+              <td><%= render partial: 'components/list', locals: {collection: @article.businesses} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: @article.industries} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: @article.players} %></td>
             </tr>
           </tbody>
         </table>

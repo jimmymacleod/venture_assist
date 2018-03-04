@@ -28,9 +28,9 @@
           <% @industries.each do |industry| %>
           <tr>
               <td style='width:200px'><%= link_to industry.name, industry %></td>
-              <td>Businesses</td>
-              <td>Players</td>
-              <td>Industries</td>
+              <td><%= render partial: 'components/list', locals: {collection: industry.businesses} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: industry.players} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: industry.articles} %></td>
             </tr>
           <% end %>
           </tbody>

@@ -2,7 +2,7 @@
 
   <p id="notice"><%= notice %></p>
 
-    <div class="row mb-3 mt-3">
+    <div class="row marginBottom30">
       <div class="col-md-10">
         <h3>Businesses</h3>
         <h3 class="background-bar">Businesses</h3>
@@ -28,7 +28,6 @@
             <th><h6>Industry</h6></th>
             <th><h6>Articles</h6></th>
             <th><h6>Players</h6></th>
-
           </tr>
         </thead>
         <tbody>
@@ -41,9 +40,9 @@
               <td><a href="<%= business.dropbox %>">Link</a></td>
               <td><a href='<%= business.website %>'>Link</a></td>
               <td><%= business.logo %></td>
-              <td>Industries</td>
-              <td>Articles</td>
-              <td>Players</td>
+              <td><%= render partial: 'components/list', locals: {collection: business.industries} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: business.articles} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: business.players} %></td>
             </tr>
         <% end %>
         </tbody>

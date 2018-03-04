@@ -1,3 +1,4 @@
+require 'pry'
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
 
@@ -49,6 +50,7 @@ class BusinessesController < ApplicationController
         format.json { render json: @business.errors, status: :unprocessable_entity }
       end
     end
+    binding.pry
   end
 
   # DELETE /businesses/1
@@ -69,7 +71,7 @@ class BusinessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.fetch(:business).permit(:name, :description, :location, :dropbox, :website, :logo)
+      params.fetch(:business).permit(:name, :description, :location, :dropbox, :website, :logo, :industry_ids)
     end
 
 end

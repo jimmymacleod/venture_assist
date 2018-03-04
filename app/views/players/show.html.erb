@@ -26,9 +26,9 @@
             <tr>
               <td><%= @player.name %></td>
               <td><%= link_to "Linkedin", @player.linkedin, data: { confirm: "Are you sure?" } %></td>
-              <td>Businesses</td>
-              <td>Articles</td>
-              <td>Industries</td>
+              <td><%= render partial: 'components/list', locals: {collection: @player.businesses} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: @player.articles} %></td>
+              <td><%= render partial: 'components/list', locals: {collection: @player.industries} %></td>
             </tr>
           </tbody>
         </table>
