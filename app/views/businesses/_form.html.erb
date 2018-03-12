@@ -38,8 +38,16 @@
           <%= f.text_field :logo %>
         </div>
         <div class="field form-group row">
-          <%= f.label :industry_ids, "Industries", class:"col-sm-3 selectpicker"%>
-          <%= f.collection_select(:industry_ids, Industry.all, :id, :name, {}, :multiple => true, size: Industry.all.length)%>
+          <%= f.label :industry_ids, "Industries", class:"col-sm-3"%>
+          <%= f.collection_check_boxes( :industry_ids, Industry.all, :id, :name) %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :player_ids, "Players", class:"col-sm-3"%>
+          <%= f.collection_check_boxes( :player_ids, Player.all, :id, :name) %>
+        </div>
+        <div class="field form-group row">
+          <%= f.label :article_ids, "Players", class:"col-sm-3"%>
+          <%= f.collection_check_boxes( :article_ids, Article.all, :id, :name) %>
         </div>
         <div class="field form-group row">
           <%= f.submit %>

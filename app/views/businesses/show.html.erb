@@ -46,8 +46,8 @@
           <td><a href="<%= @business.dropbox %>">Link</a></td>
           <td><a href='<%= @business.website %>'>Link</a></td>
           <td><%= render partial: 'components/list', locals: {collection: @business.industries} %></td>
-          <td><%= render partial: 'components/list', locals: {collection: @business.articles} %></td>
           <td><%= render partial: 'components/list', locals: {collection: @business.players} %></td>
+          <td><%= render partial: 'components/list', locals: {collection: @business.articles} %></td>
          </tr>
         </tbody>
       </table>

@@ -26,6 +26,7 @@ class BusinessesController < ApplicationController
   # POST /businesses.json
   def create
     @business = Business.new(business_params)
+    set_associations
 
     respond_to do |format|
       if @business.save
@@ -41,6 +42,10 @@ class BusinessesController < ApplicationController
   # PATCH/PUT /businesses/1
   # PATCH/PUT /businesses/1.json
   def update
+
+    @business = Business.find(params[:id])
+    set_associations
+
     respond_to do |format|
       if @business.update(business_params)
         format.html { redirect_to @business, notice: 'Business was successfully updated.' }
@@ -50,7 +55,7 @@ class BusinessesController < ApplicationController
         format.json { render json: @business.errors, status: :unprocessable_entity }
       end
     end
-    binding.pry
+
   end
 
   # DELETE /businesses/1
@@ -64,6 +69,15 @@ class BusinessesController < ApplicationController
   end
 
   private
+
+    def set_associations
+      @business = Business.find(params[:id])
+      industriesParams = params[:business][:industry_ids].reject{ |c| c.empty? }
+      playerParams = params[:business][:player_ids].reject { |c| c.empty? }
+      articleParams = params[:business][:article_ids].reject { |c| c.empty? }
+      @business.update(:player_ids => playerParams, :industry_ids => industriesParams, :article_ids => articleParams)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_business
       @business = Business.find(params[:id])
@@ -73,5 +87,7 @@ class BusinessesController < ApplicationController
     def business_params
       params.fetch(:business).permit(:name, :description, :location, :dropbox, :website, :logo, :industry_ids)
     end
+
+
 
 end

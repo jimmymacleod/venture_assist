@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :images
+  resources :carrierwave_images
   get 'admin' => 'admin#index'
 
   controller :sessions do
